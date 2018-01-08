@@ -5,6 +5,7 @@ namespace classeBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class CoursType extends AbstractType
 {
@@ -13,7 +14,9 @@ class CoursType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('places');
+        $builder->add('places')->add('Intervenant', EntityType::class, array(
+                'class' => 'classeBundle:Intervenant',
+                'choice_label' => 'nom'));
     }/**
      * {@inheritdoc}
      */

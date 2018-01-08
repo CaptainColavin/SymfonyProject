@@ -42,6 +42,12 @@ class Intervenant
      */
     private $matiere;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Cours", inversedBy="intervenant")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
+     */
+    private $cours;
+
 
     /**
      * Get id
@@ -125,4 +131,3 @@ class Intervenant
         return $this->matiere;
     }
 }
-

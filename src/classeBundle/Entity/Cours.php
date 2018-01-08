@@ -3,6 +3,7 @@
 namespace classeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Cours
@@ -29,11 +30,15 @@ class Cours
     private $places;
 
     /**
-     * @var Intervant
-     *
-     * @ORM\Column(name="id_Intervenant", type="Intervant")
+     * @ORM\OneToMany(targetEntity="Intervenant", mappedBy="cours")
      */
     private $intervenant;
+    public function __construct()
+   {
+       $this->products = new ArrayCollection();
+   }
+
+
     /**
      * Get Intervant
      *
